@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class fish : MonoBehaviour
 {
+    [Header("Original scale")]
+    [SerializeField] Vector3 originalScale;
     [Header("SpawnLeft")]
     [SerializeField] Transform[] spawnLeft;
     [Header("SpawnRight")]
     [SerializeField] Transform[] spawnRight;
+    [Header("Swim Speed Range")]
+    [SerializeField] float speedMin = 0.5f;
+    [SerializeField] float speedMax = 3f;
+    [SerializeField] float scaleMin = 1f;
+    [SerializeField] float scaleMax = 1f;
+
+    [SerializeField] Transform fishPool;
 
     public float swinSpeed = 1f;
     public float destX = 0;
@@ -15,13 +24,14 @@ public class fish : MonoBehaviour
 
     private void Start()
     {
-        swinSpeed = Random.Range(0.5f, 3f);
+        swinSpeed = Random.Range(speedMin, speedMax);
+        transform.localScale = originalScale * Random.Range(scaleMin, scaleMax);
         Transform[] spawn = new Transform[2];
         if (Random.Range(0, 10) < 5)
         {
             spawn = spawnLeft;
             transform.rotation = Quaternion.identity;
-            destX = 12f;
+            destX = spawnRight[0].position.x;
             toRight = true;
         }
             
@@ -29,7 +39,7 @@ public class fish : MonoBehaviour
         {
             spawn = spawnRight;
             transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
-            destX = -12f;
+            destX = spawnLeft[0].position.x;
             toRight = false;
         }
 
@@ -46,13 +56,17 @@ public class fish : MonoBehaviour
         if(toRight)
             if (transform.position.x > destX)
             {
-                Instantiate(gameObject, new Vector3(10, 10, 0), Quaternion.identity);
+                transform.localScale = originalScale;
+                 GameObject _fish = Instantiate(gameObject, new Vector3(10, 10, 0), Quaternion.identity, fishPool);
+                _fish.name = gameObject.name;
                 Destroy(gameObject);
             }
         if(!toRight)
             if (transform.position.x < destX)
             {
-                Instantiate(gameObject, new Vector3(10, 10, 0), Quaternion.identity);
+                transform.localScale = originalScale;
+                GameObject _fish = Instantiate(gameObject, new Vector3(10, 10, 0), Quaternion.identity, fishPool);
+                _fish.name = gameObject.name;
                 Destroy(gameObject);
             }
         
