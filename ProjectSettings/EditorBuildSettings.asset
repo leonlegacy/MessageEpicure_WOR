@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Opening.unity
+    guid: 44d092a9873d5354d896eca650f18bd3
+  - enabled: 1
+    path: Assets/Scenes/fishTank.unity
+    guid: 9ea620b4ea7336b4386156d1168ca90e
+  - enabled: 0
     path: Assets/Scenes/BT_test.unity
     guid: 5b5876d1270fe924b8edc7b71c9fb01b
   m_configObjects: {}
