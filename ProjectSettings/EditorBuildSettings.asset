@@ -5,15 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/nativebt/scenes/arduino.btconnection.unity
+    guid: c10287e0c80a2d043958bc04b4038a52
+  - enabled: 0
+    path: Assets/Scenes/BT_test.unity
+    guid: 5b5876d1270fe924b8edc7b71c9fb01b
+  - enabled: 0
+    path: Assets/BluetoothAPI/Scenes/demo.unity
+    guid: 29265e594f8b847f78e35de39aefa1f9
+  - enabled: 1
+    path: Assets/BluetoothAPI/Scenes/main.unity
+    guid: 43bbdd0c42e894f48b084f211b618b56
   - enabled: 1
     path: Assets/Scenes/Opening.unity
     guid: 44d092a9873d5354d896eca650f18bd3
   - enabled: 1
     path: Assets/Scenes/fishTank.unity
     guid: 9ea620b4ea7336b4386156d1168ca90e
-  - enabled: 0
-    path: Assets/Scenes/BT_test.unity
-    guid: 5b5876d1270fe924b8edc7b71c9fb01b
   - enabled: 1
     path: Assets/Scenes/cubeWorld.unity
     guid: 9a324cf0c0590ab488265bb80031c55b
